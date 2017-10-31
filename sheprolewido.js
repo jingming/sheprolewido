@@ -52,6 +52,11 @@ function loadPhotoContent() {
 $(document).ready(function() {
   $('.weddingPartyMember').click(function(event) {
     event.stopPropagation();
+
+    var isBridal = this.parentElement.id.indexOf('bridal') >= 0;
+    var partyElement = isBridal ? '#bridalParty' : '#groomalParty';
+    $(partyElement + ' .weddingPartyDesc').addClass('hidden');
+
     var element = $(this.children['1']);
     element.toggleClass('hidden');
   });
